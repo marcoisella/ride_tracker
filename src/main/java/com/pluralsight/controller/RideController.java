@@ -19,22 +19,22 @@ public class RideController {
 
 	@Autowired
 	private RideService rideService;
-	
+
 	@RequestMapping(value = "/ride", method = RequestMethod.PUT)
 	public @ResponseBody Ride updateRide(@RequestBody Ride ride) {
 		return rideService.updateRide(ride);
 	}
-	
+
 	@RequestMapping(value = "/ride", method = RequestMethod.POST)
 	public @ResponseBody Ride createRide(@RequestBody Ride ride) {
 		return rideService.createRide(ride);
 	}
-	
+
 	@RequestMapping(value = "/ride/{id}", method = RequestMethod.GET)
-	public @ResponseBody Ride getRide(@PathVariable(value="id") Integer id) {
+	public @ResponseBody Ride getRide(@PathVariable(value = "id") Integer id) {
 		return rideService.getRide(id);
 	}
-	
+
 	@RequestMapping(value = "/rides", method = RequestMethod.GET)
 	public @ResponseBody List<Ride> getRides() {
 		return rideService.getRides();
@@ -43,6 +43,12 @@ public class RideController {
 	@RequestMapping(value = "/batch", method = RequestMethod.GET)
 	public @ResponseBody Object getBatch() {
 		rideService.batch();
-		 return null;
+		return null;
+	}
+
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+	public @ResponseBody Object delete(@PathVariable(value = "id") Integer id) {
+		rideService.delete(id);
+		return null;
 	}
 }
