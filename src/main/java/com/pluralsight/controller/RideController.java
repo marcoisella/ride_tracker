@@ -25,7 +25,7 @@ public class RideController {
 	@Autowired
 	private RideService rideService;
 
-	@RequestMapping(value = "/ride", method = RequestMethod.PUT)
+	@RequestMapping(value = "/ride", method = RequestMethod.PUT) 
 	public @ResponseBody Ride updateRide(@RequestBody Ride ride) {
 		return rideService.updateRide(ride);
 	}
